@@ -11,10 +11,10 @@ def findEntry(wordEntered):
         return entries[word[0].upper()+word[1:]]
     elif word[0].lower()+word[1:] in entries.keys():
         print("You have entered **",word,"** while it's correct form is **",word[0].lower()+word[1:],"**:")
-        return entries[word[0].upper()+word[1:]]
-    elif len(get_close_matches(word, entries.keys()))>0:
+        return entries[word[0].lower()+word[1:]]
+    elif len(get_close_matches(word, entries.keys(), cutoff=0.7))>0:
         ans = input("Did you mean %s instead? [Y/N]" % get_close_matches(word, entries.keys())[0])
-        if ans == "Y" or "y":
+        if ans == "Y" or ans == "y":
             return entries[get_close_matches(word, entries.keys())[0]]
         else:
             return "Your entry doesn't exist."
