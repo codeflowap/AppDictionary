@@ -3,10 +3,13 @@ from difflib import get_close_matches
 
 entries = json.load(open("entries.json"))
 
-def findEntry(word):
-    word = correctEntry(word)  
+def findEntry(wordEntered):
+    word = correctEntry(wordEntered)  
     if word in entries:
         return entries[word]
+    elif word[0].upper()+word[1:] in entries:
+        print("You have entered **",word,"** while it's correct form is **",word[0].upper()+word[1:],"**:")
+        return entries[word[0].upper()+word[1:]]
     elif len(get_close_matches(word, entries.keys()))>0:
         ans = input("Did you mean %s instead? [Y/N]" % get_close_matches(word, entries.keys())[0])
         if ans == "Y" or "y":
