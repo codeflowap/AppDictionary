@@ -9,6 +9,8 @@ def findEntry(wordEntered):
     elif word[0].upper()+word[1:] in entries.keys():
         print("You have entered **",word,"** while it's correct form is **",word[0].upper()+word[1:],"**:")
         return entries[word[0].upper()+word[1:]]
+    elif wordEntered.upper() in entries.keys():
+        return entries[wordEntered.upper()]
     elif word[0].lower()+word[1:] in entries.keys():
         print("You have entered **",word,"** while it's correct form is **",word[0].lower()+word[1:],"**:")
         return entries[word[0].lower()+word[1:]]
