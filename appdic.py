@@ -41,6 +41,7 @@ def checkForDouble(w):
     
 def correctEntry(wrodIn):
     """Keep the first letter as it is and make the rest lowercase"""
+    """ This method is somehow similar to .title() method but different functionality"""
     firstletter = wrodIn[0]
     wordlower = wrodIn[1:].lower()
     correctOriginalWord = firstletter + wordlower
